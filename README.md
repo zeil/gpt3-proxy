@@ -34,7 +34,7 @@ MPI job started (PID 37407)
 
 **Note:** log file becomes available ~30 seconds after start when `NeMo` moves it to `run_0` subdir.
 
-## Running on Bare Mental (BM)
+## Running on Bare Metal (BM)
 
 To run in a BM environment, some additional steps are required:
 - Install Nvidia Driver and OFED as well as CUDA toolkit
