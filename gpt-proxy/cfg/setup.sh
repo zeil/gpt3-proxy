@@ -19,5 +19,6 @@ export TOKENIZERS_PARALLELISM=False
 
 export PYTHONPATH=/opt/NeMo:\${PYTHONPATH}
 export CUDA_DEVICE_MAX_CONNECTIONS=1
-export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+#export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0,1,2,3,4,5,6,7}"
 export UCX_TLS=tcp,shm,self # Need on BM to disable IB discovery by UCX for userbuffers
