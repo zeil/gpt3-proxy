@@ -34,6 +34,16 @@ MPI job started (PID 37407)
 
 **Note:** log file becomes available ~30 seconds after start when `NeMo` moves it to `run_0` subdir.
 
+### Launching on 4 GPUs
+
+The test with 4 GPUs uses `gpt-proxy/cfg/gpt3_proxy_smol_hydra.yaml` configuration file. Differences with `gpt3_proxy.yaml`:
+- TP reduced to 2 from 4;
+- `hidden_size`, `ffn_hidden_size` and `num_attention_heads` are cut by half;
+
+Use `gpt-proxy/cfg/launch_smol.sh` script to launch. To launch on 4 GPUs within single NUMA, set `CUDA_VISIBLE_DEVICES=0,1,2,3`
+and `--map-by ppr:4:numa:pe=<num_cores_per_gpu>`. To launch on 4 GPUs across two NUMAs, set `CUDA_VISIBLE_DEVICES=2,3,4,5`
+`--map-by ppr:2:numa:pe=<num_cores_per_gpu>`.
+
 ## Running on Bare Metal (BM)
 
 To run in a BM environment, some additional steps are required:
