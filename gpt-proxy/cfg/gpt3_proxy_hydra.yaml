@@ -49,7 +49,7 @@ exp_manager:
   seconds_to_sleep: 180
 model:
   micro_batch_size: 1
-  global_batch_size: 256
+  global_batch_size: 64
   rampup_batch_size: null
   context_parallel_size: 1
   tensor_model_parallel_size: 4
