@@ -34,6 +34,14 @@ MPI job started (PID 37407)
 
 **Note:** log file becomes available ~30 seconds after start when `NeMo` moves it to `run_0` subdir.
 
+### Launching on 8xH100 machine
+
+The test with 8xH100 machine uses `launch_h100.sh` script with  `gpt-proxy/cfg/gpt3_proxy_h100_hydra.yaml` configuration file. Differences with `gpt3_proxy.yaml`:
+- reduced `num_layers` to 16 from 24;
+- `virtual_pipeline_model_parallel_size` set to 4 to match new number of layers;
+
+To alter CPU affinity, modify `--map-by` parameter in the `launch_h100.sh` script similar to launch on H200.
+
 ### Launching on 4 GPUs
 
 The test with 4 GPUs uses `gpt-proxy/cfg/gpt3_proxy_smol_hydra.yaml` configuration file. Differences with `gpt3_proxy.yaml`:

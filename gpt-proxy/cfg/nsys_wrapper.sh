@@ -4,6 +4,7 @@ set -ex
 source /cfg/setup.sh
 
 : "${ENABLE_NSYS_PROFILE:=false}"
+: "${NEMO_CONFIG:?NEMO_CONFIG name not set}"
 
 export NSYS_EXTRA_OPTIONS=" \
     --sample=process-tree \
@@ -43,7 +44,7 @@ fi
 
 export TRAIN_CMD="python3 -u /opt/NeMo/examples/nlp/language_modeling/megatron_gpt_pretraining.py \
   --config-path=/cfg \
-  --config-name=gpt3_proxy_hydra.yaml \
+  --config-name=${NEMO_CONFIG} \
   run.results_dir=/results \
   exp_manager.explicit_log_dir=/results/${RUN_ID} \
   model.fp8=True \

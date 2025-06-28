@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export NEMO_CONFIG="gpt3_proxy_hydra.yaml"
+export NEMO_CONFIG="gpt3_proxy_h100_hydra.yaml"
 export RUN_ID="$(hostname)_$(date +%Y%m%d_%H%M%S)"
 mkdir -p /results/${RUN_ID}
 
