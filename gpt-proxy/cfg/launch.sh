@@ -4,7 +4,8 @@ export NEMO_CONFIG="gpt3_proxy_hydra.yaml"
 export RUN_ID="$(hostname)_$(date +%Y%m%d_%H%M%S)"
 mkdir -p /results/${RUN_ID}
 
-echo "Logging to: /results/${RUN_ID}/run_0/mpirun-log_${RUN_ID}.out"
+LOG="/results/${RUN_ID}/run_0/mpirun-log_${RUN_ID}.out"
+echo "Logging to: ${LOG}"
 
 (
    OMPI_ALLOW_RUN_AS_ROOT=1 OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1 \
@@ -21,3 +22,4 @@ echo "Logging to: /results/${RUN_ID}/run_0/mpirun-log_${RUN_ID}.out"
 
 MPI_PID=$!
 echo "MPI job started (PID $MPI_PID)"
+tail -F "${LOG}"

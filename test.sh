@@ -1,0 +1,1 @@
+sudo docker run -it --rm --gpus all --ipc=host --privileged -v ./gpt-proxy/cfg:/cfg -v ./gpt-proxy/datasets:/datasets -v ./gpt-proxy/results:/results nvcr.io/nvidia/nemo:24.12 /bin/bash /cfg/launch.sh

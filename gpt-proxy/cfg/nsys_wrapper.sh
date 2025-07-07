@@ -39,7 +39,7 @@ if [[ "${ENABLE_NSYS_PROFILE,,}" == "true" ]]; then
 else
     export PROFILE_CMD=""
     export NSYS_TRAINER_OVERRIDES=""
-    export TRAINER_MAX_STEPS=20
+    export TRAINER_MAX_STEPS=10
 fi
 
 export TRAIN_CMD="python3 -u /opt/NeMo/examples/nlp/language_modeling/megatron_gpt_pretraining.py \
